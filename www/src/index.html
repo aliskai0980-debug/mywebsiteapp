@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدير الفواتير والدفعات</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 مدير الفواتير والدفعات</h1>
+            <div class="date-display" id="currentDate"></div>
+        </header>
+
+        <div class="form-card">
+            <h2>➕ إضافة فاتورة جديدة</h2>
+            <div class="form-group">
+                <input type="text" id="billName" placeholder="اسم الفاتورة (مثال: إيجار، كهرباء، غاز...)" class="form-input">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="number" id="billAmount" placeholder="المبلغ" class="form-input">
+                </div>
+                <div class="form-group">
+                    <select id="billType" class="form-input">
+                        <option value="expense">💸 مصروف عادي</option>
+                        <option value="payment">💰 دفعة مستحقة</option>
+                        <option value="penalty">⚠️ غرامة</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="date" id="billDate" class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="billDay" placeholder="يوم الاستحقاق (1-31)" class="form-input">
+                </div>
+            </div>
+            <button onclick="addBill()" class="btn-primary">➕ إضافة فاتورة</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">💸</div>
+                <div class="stat-label">إجمالي المصروفات</div>
+                <div class="stat-value" id="totalExpenses">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">الدفعات المستحقة</div>
+                <div class="stat-value" id="totalPayments">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-label">الغرامات</div>
+                <div class="stat-value" id="totalPenalties">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-label">الإجمالي الكلي</div>
+                <div class="stat-value" id="totalAll">0</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterBills('all')">الكل</button>
+            <button class="filter-btn" onclick="filterBills('expense')">💸 المصروفات</button>
+            <button class="filter-btn" onclick="filterBills('payment')">💰 الدفعات</button>
+            <button class="filter-btn" onclick="filterBills('penalty')">⚠️ الغرامات</button>
+            <button class="filter-btn" onclick="filterBills('overdue')">⏰ المتأخرة</button>
+        </div>
+
+        <div class="bills-list" id="billsList"></div>
+
+        <div class="reminder-card" id="reminderCard">
+            <h3>🔔 تذكير الشهر القادم</h3>
+            <div id="reminderContent"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "appId": "com.myappsorg.myapp",
+  "appName": "mein app",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    },
+    "CapacitorUpdater": {
+      "appId": "com.myappsorg.myapp",
+      "version": "1.0.0",
+      "autoUpdate": true
+    }
+  }
+}
