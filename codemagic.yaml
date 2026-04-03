@@ -6,10 +6,6 @@ workflows:
       node: latest
     scripts:
       - npm install
-      - npx cap copy
       - npx cap sync
-      - cd ios
-      - xcodebuild -project App.xcodeproj -scheme App -sdk iphoneos -configuration Release archive -archivePath build/App.xcarchive
-      - xcodebuild -exportArchive -archivePath build/App.xcarchive -exportPath build -exportOptionsPlist exportOptions.plist
     artifacts:
-      - build/App.ipa
+      - ios/App/build/Release-iphoneos/App.ipa
